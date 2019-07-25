@@ -40,6 +40,7 @@ if __name__ == "__main__":
 
     client.subscribe(topic="/control/devices/proove")
 
+    print (' [*] Waiting for messages...')
     while True:
         client.check_msg()
         try:
