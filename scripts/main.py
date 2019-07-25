@@ -10,7 +10,7 @@ from proove import Proove
 from config import known_nets, tx_pin
 from util.wifi import connect_wifi
 
-wdt = WDT(timeout=60000)
+wdt = WDT(timeout=2000)
 
 wl = WLAN()
 
@@ -42,13 +42,12 @@ if __name__ == "__main__":
 
     print (' [*] Waiting for messages...')
     while True:
-        client.check_msg()
         try:
-            client.ping()
+            client.check_msg()
         except:
             print(' [-] Failed to ping....')
             print(' [*] Reconnecting to WIFI / MQTT.')
             connect_wifi(known_nets)
             client.connect()
         wdt.feed()
-        time.sleep(0.4)
+        time.sleep(0.1)
