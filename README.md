@@ -5,7 +5,7 @@ Interface with `Proove`/`Anslut`/`Nexa`/`Telldus` remote switches using [LoPy](h
 ## Usage
 
 - Make a copy of `scripts/config_example.py` and rename it to `scripts/config.py`
-- Fill in your `WiFi credentials`, `MQTT Configs` and `GPIO Pin`.
+- Fill in your `WiFi credentials`, `MQTT Configs` and `GPIO Configs`.
 - Upload the code to LoPy.
 
 The device subscribes to a MQTT topic specified in `scripts/config.py`.
@@ -23,8 +23,8 @@ To control the switches, send `JSON String` as message to the topic with the fol
 
 ## Wiring
 
-| LoPy          | Transmitter   |
-| :------------ | :------------ |
-| `P8`          | `Data`        |
-| `3.3V`        | `VCC`         |
-| `GND`         | `GND`         |
+| LoPy                                      | Transmitter   |
+| :---------------------------------------- | :------------ |
+| `P9` (or any pin specified in config.py)  | `Data`        |
+| `3.3V`                                    | `VCC`         |
+| `GND`                                     | `GND`         |
