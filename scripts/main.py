@@ -14,6 +14,7 @@ wdt = WDT(timeout=2000)
 
 wl = WLAN()
 
+# TODO: Generate unique random Client ID
 client = MQTTClient(
     "lopy-proove",
     server=mqtt_config['host'],
