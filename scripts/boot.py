@@ -8,4 +8,4 @@ uart = machine.UART(0, 115200)
 os.dupterm(uart)
 
 if machine.reset_cause() != machine.SOFT_RESET:
-	connect_wifi(known_nets)
+    connect_wifi(known_nets)

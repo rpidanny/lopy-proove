@@ -1,5 +1,6 @@
 from machine import Pin, Timer
 
+
 class Proove:
     """
         Packet structure:
@@ -119,7 +120,8 @@ class Proove:
 
     def _encode_transmitter_id(self, transmitter_id):
         compliment = self._max_int - transmitter_id
-        return str("{:>" + str(self._num_bits) + "}").format("{0:b}".format(compliment)).replace(' ', '0')
+        return str("{:>" + str(self._num_bits) + "}").format(
+            "{0:b}".format(compliment)).replace(' ', '0')
         # return "{0:b}".format(compliment).zfill(self._num_bits)
 
     def transmit(self,

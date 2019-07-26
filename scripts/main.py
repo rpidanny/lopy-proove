@@ -15,10 +15,10 @@ wdt = WDT(timeout=2000)
 wl = WLAN()
 
 # TODO: Generate unique random Client ID
-client = MQTTClient(
-    "lopy-proove",
-    server=mqtt_config['host'],
-    port=mqtt_config['port'])
+client = MQTTClient("lopy-proove",
+                    server=mqtt_config['host'],
+                    port=mqtt_config['port'])
+
 
 def on_message(topic, msg):
     print(" [+] " + str(topic) + " " + str(msg))
@@ -32,6 +32,7 @@ def on_message(topic, msg):
                            device_id=data['deviceId'],
                            transmitter_id=data['transmitterId'])
 
+
 if __name__ == "__main__":
     proove_remote = Proove(gpio_config['tx_pin'])
 
@@ -41,7 +42,7 @@ if __name__ == "__main__":
 
     client.subscribe(topic=mqtt_config['subscription_topic'])
 
-    print (' [*] Waiting for messages...')
+    print(' [*] Waiting for messages...')
     while True:
         try:
             client.check_msg()
