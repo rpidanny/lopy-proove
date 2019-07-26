@@ -1,4 +1,4 @@
-# Lopy Proove
+# LoPy Proove
 
 Interface with `Proove`/`Anslut`/`Nexa`/`Telldus` remote switches using [LoPy](https://pycom.io) and cheap [433Mhz RF Transmitter](https://www.aliexpress.com/item/32763193655.html).
 
