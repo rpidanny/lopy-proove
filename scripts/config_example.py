@@ -8,4 +8,12 @@ known_nets = {
     },  # (ip, subnet_mask, gateway, DNS_server)
 }
 
-tx_pin = 'P9'
+gpio_config = {
+    tx_pin: 'P9'
+}
+
+mqtt_config = {
+    host: '192.168.2.10',
+    port: 1883,
+    subscription_topic: '/control/devices/proove'
+}

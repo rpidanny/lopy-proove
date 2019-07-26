@@ -7,7 +7,7 @@ from network import WLAN
 from mqtt import MQTTClient
 from proove import Proove
 
-from config import known_nets, tx_pin
+from config import known_nets, gpio_config, mqtt_config
 from util.wifi import connect_wifi
 
 wdt = WDT(timeout=2000)
@@ -16,8 +16,8 @@ wl = WLAN()
 
 client = MQTTClient(
     "lopy-proove",
-    "192.168.2.10",
-    port=1883)
+    server=mqtt_config['host'],
+    port=mqtt_config['port'])
 
 def on_message(topic, msg):
     print(" [+] " + str(topic) + " " + str(msg))
@@ -32,13 +32,13 @@ def on_message(topic, msg):
                            transmitter_id=data['transmitterId'])
 
 if __name__ == "__main__":
-    proove_remote = Proove(tx_pin)
+    proove_remote = Proove(gpio_config['tx_pin'])
 
     client.set_callback(on_message)
 
     client.connect()
 
-    client.subscribe(topic="/control/devices/proove")
+    client.subscribe(topic=mqtt_config['subscription_topic'])
 
     print (' [*] Waiting for messages...')
     while True:
