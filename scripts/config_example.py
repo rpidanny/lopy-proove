@@ -9,11 +9,11 @@ known_nets = {
 }
 
 gpio_config = {
-    tx_pin: 'P9'
+    'tx_pin': 'P9'
 }
 
 mqtt_config = {
-    host: '192.168.2.10',
-    port: 1883,
-    subscription_topic: '/control/devices/proove'
+    'host': '192.168.2.10',
+    'port': 1883,
+    'subscription_topic': '/control/devices/proove'
 }
